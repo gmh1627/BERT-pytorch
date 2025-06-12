@@ -7,7 +7,7 @@ from ..model import BERTLM, BERT
 from .optim_schedule import ScheduledOptim
 
 import tqdm
-
+import os
 
 class BERTTrainer:
     """
@@ -144,6 +144,12 @@ class BERTTrainer:
         :param file_path: model output path which gonna be file_path+"ep%d" % epoch
         :return: final_output_path
         """
+        # 确保目录存在
+        directory = os.path.dirname(file_path)
+        if directory and not os.path.exists(directory):
+            os.makedirs(directory)
+
+        # 保存模型
         output_path = file_path + ".ep%d" % epoch
         torch.save(self.bert.cpu(), output_path)
         self.bert.to(self.device)
