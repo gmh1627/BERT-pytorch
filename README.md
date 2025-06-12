@@ -1,9 +1,5 @@
 # BERT-Pytorch 源码阅读
 
----
-
-[TOC]
-
 ## 1.  整体描述
 
 BERT-Pytorch 在分发包时，主要设置了两大功能：
@@ -16,7 +12,7 @@ BERT-Pytorch 在分发包时，主要设置了两大功能：
 ## 1. bert-vocab
 
 ```
-python3 -m ipdb test_bert_vocab.py  # 调试 bert-vocab
+python -m ipdb test_bert_vocab.py -c data\corpus.small -o data\vocab.small  # 调试 bert-vocab
 ```
 
 其实 bert-vocab 内部并没有什么重要信息，无非就是一些自然语言处理中常见的预处理手段， 自己花个十分钟调试一下就明白了， 我加了少部分注释， 很容易就能明白。
@@ -32,7 +28,7 @@ TorchVocab --> Vocab --> WordVocab
 - 调试命令：
 
 ```
-python3 -m ipdb test_bert.py -c data/corpus.small -v data/vocab.small -o output/bert.model
+pythonpython -m ipdb test_bert_vocab.py -c data\corpus.small -o data\vocab.small -m ipdb test_bert.py -c data/corpus.small -v data/vocab.small -o output/bert.model
 ```
 
 ![](http://ww1.sinaimg.cn/large/006gOeiSly1g5qw6nkhhgj31400u0myh.jpg)

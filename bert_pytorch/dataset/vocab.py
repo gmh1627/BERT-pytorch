@@ -115,7 +115,7 @@ class Vocab(TorchVocab):
 class WordVocab(Vocab):
     def __init__(self, texts, max_size=None, min_freq=1):
         print("Building Vocab")
-        counter = Counter()
+        counter = Counter() # Counter 是 Python 标准库中的计数器类，专门用于统计可哈希对象的出现次数
         for line in tqdm.tqdm(texts):
             if isinstance(line, list):
                 words = line
